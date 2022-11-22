@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
+	<input type="hidden" id="status" value="<%= request.getAttribute("status") %>"/>
 	<div class="main">
 
 		<!-- Sing in  Form -->
@@ -31,7 +31,7 @@
 
 					<div class="signin-form">
 						<h2 class="form-title">Sign In</h2>
-						<form method="" action="" class="register-form"
+						<form method="post" action="login" class="register-form"
 							id="login-form">
 							<div class="form-group">
 								<label for="username"><i
@@ -72,10 +72,16 @@
 		</section>
 
 	</div>
-
 	<!-- JS -->
-	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 	<script src="js/main.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+	<script>
+		const status = document.getElementById("status").value;
+		if (status == "failed") {
+			swal("Sorry", "Wrong username or password", "error");
+		}		
+	</script>
 </body>
 <!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
