@@ -12,9 +12,10 @@
 
 <!-- Main css -->
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css"/>
 </head>
 <body>
-
+	<input type="hidden" id="status" value="<%= request.getAttribute("status") %>"/>
 	<div class="main">
 
 		<!-- Sign up form -->
@@ -24,7 +25,7 @@
 					<div class="signup-form">
 						<h2 class="form-title">Sign up</h2>
 					
-						<form method="" action="" class="register-form"
+						<form method="post" action="register" class="register-form"
 							id="register-form">
 							<div class="form-group">
 								<label for="name"><i
@@ -76,10 +77,16 @@
 
 	</div>
 	<!-- JS -->
-	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 	<script src="js/main.js"></script>
-
-
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+	<script>
+		const status = document.getElementById("status").value;
+		if (status == "success") {
+			swal("Congratulations", "Account created succesfully!!!", "success");
+		}
+		
+	</script>
 
 </body>
 <!-- This templates was made by Colorlib (https://colorlib.com) -->
