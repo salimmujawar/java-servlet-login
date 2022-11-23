@@ -36,13 +36,13 @@
 							<div class="form-group">
 								<label for="username"><i
 									class="zmdi zmdi-account material-icons-name"></i></label> <input
-									type="text" name="username" id="username"
-									placeholder="Your Name" />
+									type="email" name="username" id="username"
+									placeholder="Your Name"  required/>
 							</div>
 							<div class="form-group">
 								<label for="password"><i class="zmdi zmdi-lock"></i></label> <input
 									type="password" name="password" id="password"
-									placeholder="Password" />
+									placeholder="Password" required/>
 							</div>
 							<div class="form-group">
 								<input type="checkbox" name="remember-me" id="remember-me"
@@ -80,7 +80,11 @@
 		const status = document.getElementById("status").value;
 		if (status == "failed") {
 			swal("Sorry", "Wrong username or password", "error");
-		}		
+		}else if (status == "invalidEmail") {
+			swal("Sorry", "Please enter username", "error");
+		}else if (status == "invalidPwd") {
+			swal("Sorry", "Please enter password", "error");
+		}
 	</script>
 </body>
 <!-- This templates was made by Colorlib (https://colorlib.com) -->

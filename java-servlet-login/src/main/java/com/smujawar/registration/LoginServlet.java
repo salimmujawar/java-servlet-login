@@ -34,6 +34,18 @@ public class LoginServlet extends HttpServlet {
 		
 		Connection con = null;
 		
+		if (uemail == null || uemail.equals("")) {
+			request.setAttribute("status", "invalidEmail");
+			dispatcher = request.getRequestDispatcher("login.jsp");
+			dispatcher.forward(request, response);
+		}
+		
+		if (upwd == null || upwd.equals("")) {
+			request.setAttribute("status", "invalidPwd");
+			dispatcher = request.getRequestDispatcher("login.jsp");
+			dispatcher.forward(request, response);
+		}
+		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/java_servlet?useSSL=false", "root", "password");

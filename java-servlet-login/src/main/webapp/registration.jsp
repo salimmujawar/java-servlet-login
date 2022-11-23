@@ -30,25 +30,25 @@
 							<div class="form-group">
 								<label for="name"><i
 									class="zmdi zmdi-account material-icons-name"></i></label> <input
-									type="text" name="name" id="name" placeholder="Your Name" />
+									type="text" name="name" id="name" placeholder="Your Name" required/>
 							</div>
 							<div class="form-group">
 								<label for="email"><i class="zmdi zmdi-email"></i></label> <input
-									type="email" name="email" id="email" placeholder="Your Email" />
+									type="email" name="email" id="email" placeholder="Your Email" required/>
 							</div>
 							<div class="form-group">
 								<label for="pass"><i class="zmdi zmdi-lock"></i></label> <input
-									type="password" name="pass" id="pass" placeholder="Password" />
+									type="password" name="pass" id="pass" placeholder="Password" required/>
 							</div>
 							<div class="form-group">
 								<label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
 								<input type="password" name="re_pass" id="re_pass"
-									placeholder="Repeat your password" />
+									placeholder="Repeat your password" required/>
 							</div>
 							<div class="form-group">
 								<label for="contact"><i class="zmdi zmdi-lock-outline"></i></label>
 								<input type="text" name="contact" id="contact"
-									placeholder="Contact no" />
+									placeholder="Contact no" required/>
 							</div>
 							<div class="form-group">
 								<input type="checkbox" name="agree-term" id="agree-term"
@@ -84,6 +84,18 @@
 		const status = document.getElementById("status").value;
 		if (status == "success") {
 			swal("Congratulations", "Account created succesfully!!!", "success");
+		}else if (status == "invalidUname") {
+			swal("Sorry", "Please enter Username", "error");
+		}else if (status == "invalidUemail") {
+			swal("Sorry", "Please enter Email", "error");
+		}else if (status == "invalidUpwd") {
+			swal("Sorry", "Please enter Password", "error");
+		}else if (status == "invalidReUpwd") {
+			swal("Sorry", "Password do not match", "error");
+		}else if (status == "invalidUmobile") {
+			swal("Sorry", "Please enter Mobile NUmber", "error");
+		}else if (status == "invalidUmobileLength") {
+			swal("Sorry", "Please enter Mobile number should be of 10 digit", "error");
 		}
 		
 	</script>
